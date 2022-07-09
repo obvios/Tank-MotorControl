@@ -147,8 +147,10 @@ class MotorController:
 		GPIO.cleanup()
 
 	# Motor Controlling methods
-	def motorsOff(self):
+	def leftMotorOff(self):
 		GPIO.output(self.leftMotorEnable, GPIO.LOW)
+
+	def rightMotorOff(self):
 		GPIO.output(self.rightMotorEnable, GPIO.LOW)
 
 	def motorsOn(self):
