@@ -131,6 +131,6 @@ if __name__ == '__main__':
 	motorController = MotorController()
 	motorController.setup()
 	try:
-		simpleOneWayLoop()
+		simpleOneWayLoop(motorController)
 	except KeyboardInterrupt:
 		motorController.cleanup() 
