@@ -111,6 +111,10 @@ class MotorController:
 		GPIO.output(self.leftMotorIn2, GPIO.LOW)
 		GPIO.output(self.leftMotorIn1, GPIO.HIGH)
 
+	def rightMotorForward(self):
+		GPIO.output(self.rightMotorIn2, GPIO.LOW)
+		GPIO.output(self.rightMotorIn1, GPIO.HIGH)
+
 
 if __name__ == '__main__':
 	setup()
