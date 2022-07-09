@@ -95,6 +95,12 @@ def simpleOneWayLoop():
 		changePWMValue(75)
 		sleep(5)
 
+class MotorController:
+
+	def __init__(self) -> None:
+		self.leftMotorEnable = 33
+		self.rightMotorEnable = 26
+
 if __name__ == '__main__':
 	setup()
 	try:
