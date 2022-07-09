@@ -1,10 +1,11 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-def simpleOneWayLoop():
-	print("starting one way loop")
-	GPIO.output(enablePin, GPIO.HIGH)
-	GPIO.output(enablePin2, GPIO.HIGH)
+def simpleOneWayLoop(controller):
+	print("starting loop")
+	controller.leftMotorOn()
+	controller.rightMotorOn()
+
 	while True:
 		print("forward")
 		GPIO.output(motorControl2, GPIO.LOW)
@@ -68,9 +69,9 @@ class MotorController:
 		GPIO.output(self.rightMotorIn2, GPIO.LOW)
 
 		print("setting up pwm pins")
-		self.leftMotorPWM = GPIO.PWM(enablePin, 1000)
+		self.leftMotorPWM = GPIO.PWM(self.leftMotorEnable, 1000)
 		self.leftMotorPWM.start(100)
-		self.rightMotorPWM = GPIO.PWM(enablePin2, 1000)
+		self.rightMotorPWM = GPIO.PWM(self.rightMotorEnable, 1000)
 		self.rightMotorPWM.start(75)
 
 	def turnOffAllMotors(self):
