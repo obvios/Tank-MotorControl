@@ -15,8 +15,9 @@ def simpleOneWayLoop(controller):
 		controller.setRightMotorSpeed(100)
 		sleep(5)
 
-		print("slowwing down")
-		changePWMValue(50)
+		print("slowing down")
+		controller.setLeftMotorSpeed(50)
+		controller.setRightMotorSpeed(50)
 		sleep(5)
 
 		print("speeding up")
