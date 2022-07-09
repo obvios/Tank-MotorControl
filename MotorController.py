@@ -8,10 +8,11 @@ def simpleOneWayLoop(controller):
 
 	while True:
 		print("forward")
-		GPIO.output(motorControl2, GPIO.LOW)
-		GPIO.output(motorControl1, GPIO.HIGH)
-		GPIO.output(motorControl1_2, GPIO.LOW)
-		GPIO.output(motorControl2_2, GPIO.HIGH)
+		controller.leftMotorForward()
+		controller.rightMotorForward()
+		controller.setLeftMotorSpeed(100)
+		print("speeding up")
+		controller.setRightMotorSpeed(100)
 		sleep(5)
 
 		print("slowwing down")
