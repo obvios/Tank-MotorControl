@@ -126,6 +126,12 @@ class MotorController:
 		GPIO.output(self.rightMotorIn1, GPIO.LOW)
 		GPIO.output(self.rightMotorIn2, GPIO.LOW)
 
+		print("setting up pwm pins")
+		self.leftMotorPWM = GPIO.PWM(enablePin, 1000)
+		self.leftMotorPWM.start(100)
+		self.rightMotorPWM = GPIO.PWM(enablePin2, 1000)
+		self.rightMotorPWM.start(75)
+
 if __name__ == '__main__':
 	setup()
 	try:
