@@ -10,8 +10,8 @@ def simpleOneWayLoop(controller):
 		print("forward")
 		controller.leftMotorForward()
 		controller.rightMotorForward()
-		controller.setLeftMotorSpeed(100)
 		print("speeding up")
+		controller.setLeftMotorSpeed(100)
 		controller.setRightMotorSpeed(100)
 		sleep(5)
 
@@ -26,18 +26,18 @@ def simpleOneWayLoop(controller):
 		sleep(5)
 
 		print("backward")
-		GPIO.output(motorControl1, GPIO.LOW)
-		GPIO.output(motorControl2, GPIO.HIGH)
-		GPIO.output(motorControl2_2, GPIO.LOW)
-		GPIO.output(motorControl1_2, GPIO.HIGH)
+		controller.leftMotorReverse()
+		controller.rightMotorReverse()
 		sleep(5)
 
-		print("slowwing down")
-		changePWMValue(50)
+		print("slowing down")
+		controller.setLeftMotorSpeed(50)
+		controller.setRightMotorSpeed(50)
 		sleep(5)
 
 		print("speeding up")
-		changePWMValue(75)
+		controller.setLeftMotorSpeed(100)
+		controller.setRightMotorSpeed(100)
 		sleep(5)
 
 class MotorController:
