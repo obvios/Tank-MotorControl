@@ -146,6 +146,11 @@ class MotorController:
 		self.turnOffAllMotors()
 		GPIO.cleanup()
 
+	# Motor Controlling methods
+	def motorsOff(self):
+		GPIO.output(self.leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.rightMotorEnable, GPIO.LOW)
+
 	def setLeftMotorSpeed(self, speed):
 		self.leftMotorPWM.ChangeDutyCycle(speed)
 
