@@ -128,8 +128,9 @@ class MotorController:
 
 
 if __name__ == '__main__':
-	setup()
+	motorController = MotorController()
+	motorController.setup()
 	try:
 		simpleOneWayLoop()
 	except KeyboardInterrupt:
-		cleanup() 
+		motorController.cleanup() 
