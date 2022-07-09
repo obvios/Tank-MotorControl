@@ -132,6 +132,15 @@ class MotorController:
 		self.rightMotorPWM = GPIO.PWM(enablePin2, 1000)
 		self.rightMotorPWM.start(75)
 
+	def turnOffAllMotors(self):
+		print("turning all motors and pins off")
+		GPIO.output(self.leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.leftMotorIn2, GPIO.LOW)
+		GPIO.output(self.rightMotorEnable, GPIO.LOW)
+		GPIO.output(self.rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.rightMotorIn2, GPIO.LOW)
+
 if __name__ == '__main__':
 	setup()
 	try:
