@@ -153,8 +153,10 @@ class MotorController:
 	def rightMotorOff(self):
 		GPIO.output(self.rightMotorEnable, GPIO.LOW)
 
-	def motorsOn(self):
+	def leftMotorOn(self):
 		GPIO.output(self.leftMotorEnable, GPIO.HIGH)
+
+	def rightMotorOn(self):
 		GPIO.output(self.rightMotorEnable, GPIO.HIGH)
 
 	def setLeftMotorSpeed(self, speed):
