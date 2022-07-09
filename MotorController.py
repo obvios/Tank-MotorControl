@@ -108,6 +108,24 @@ class MotorController:
 		self.rightMotorIn1 = 24
 		self.rightMotorIn2 = 22
 
+	def setup(self):
+		print("Setting up")
+		GPIO.setmode(GPIO.BOARD)
+		GPIO.setup(self.leftMotorEnable, GPIO.OUT)
+		GPIO.setup(self.leftMotorIn1, GPIO.OUT)
+		GPIO.setup(self.leftMotorIn2, GPIO.OUT)
+		GPIO.setup(self.rightMotorEnable, GPIO.OUT)
+		GPIO.setup(self.rightMotorIn1, GPIO.OUT)
+		GPIO.setup(self.rightMotorIn2, GPIO.OUT)
+
+		print("initializing all pins to low")
+		GPIO.output(self.leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.leftMotorIn2, GPIO.LOW)
+		GPIO.output(self.rightMotorEnable, GPIO.LOW)
+		GPIO.output(self.rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.rightMotorIn2, GPIO.LOW)
+
 if __name__ == '__main__':
 	setup()
 	try:
