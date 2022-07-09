@@ -141,6 +141,12 @@ class MotorController:
 		GPIO.output(self.rightMotorIn1, GPIO.LOW)
 		GPIO.output(self.rightMotorIn2, GPIO.LOW)
 
+	def cleanup(self):
+		print("Cleaning up")
+		self.turnOffAllMotors()
+		GPIO.cleanup()
+
+
 if __name__ == '__main__':
 	setup()
 	try:
