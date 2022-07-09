@@ -111,7 +111,15 @@ class MotorController:
 		GPIO.output(self.leftMotorIn2, GPIO.LOW)
 		GPIO.output(self.leftMotorIn1, GPIO.HIGH)
 
+	def leftMotorReverse(self):
+		GPIO.output(self.leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.leftMotorIn2, GPIO.HIGH)
+
 	def rightMotorForward(self):
+		GPIO.output(self.rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.rightMotorIn2, GPIO.HIGH)
+
+	def rightMotorReverse(self):
 		GPIO.output(self.rightMotorIn2, GPIO.LOW)
 		GPIO.output(self.rightMotorIn1, GPIO.HIGH)
 
