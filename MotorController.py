@@ -99,7 +99,14 @@ class MotorController:
 
 	def __init__(self) -> None:
 		self.leftMotorEnable = 33
+		self.leftMotorPWM = None
+		self.leftMotorIn1 = 35
+		self.leftMotorIn2 = 37
+
 		self.rightMotorEnable = 26
+		self.rightMotorPWM = None
+		self.rightMotorIn1 = 24
+		self.rightMotorIn2 = 22
 
 if __name__ == '__main__':
 	setup()
