@@ -146,6 +146,12 @@ class MotorController:
 		self.turnOffAllMotors()
 		GPIO.cleanup()
 
+	def setLeftMotorSpeed(self, speed):
+		self.leftMotorPWM.ChangeDutyCycle(speed)
+
+	def setRightMotorSpeed(self, speed):
+		self.rightMotorPWM.ChangeDutyCycle(speed)
+
 
 if __name__ == '__main__':
 	setup()
