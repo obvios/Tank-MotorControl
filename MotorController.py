@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
+# Used to test connections
 def simpleOneWayLoop(controller):
 	print("starting loop")
 	controller.leftMotorOn()
