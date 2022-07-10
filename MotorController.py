@@ -107,10 +107,10 @@ class MotorController:
 	def rightMotorOn(self):
 		GPIO.output(self.rightMotorEnable, GPIO.HIGH)
 
-	def setLeftMotorSpeed(self, speed):
+	def setLeftMotorSpeed(self, speed: int):
 		self.leftMotorPWM.ChangeDutyCycle(speed)
 
-	def setRightMotorSpeed(self, speed):
+	def setRightMotorSpeed(self, speed: int):
 		self.rightMotorPWM.ChangeDutyCycle(speed)
 
 	def leftMotorForward(self):
