@@ -1,3 +1,4 @@
+# Module to abstract the two dc motors to be controlled by the tank
 import RPi.GPIO as GPIO
 from time import sleep
 
