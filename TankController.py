@@ -19,3 +19,7 @@ class TankController:
     def motorsOff(self):
         self.motorController.leftMotorOff()
         self.motorController.rightMotorOff()
+
+    def stop(self):
+        self.motorController.setLeftMotorSpeed(0)
+        self.motorController.setRightMotorSpeed(0)
