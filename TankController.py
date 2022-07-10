@@ -11,3 +11,11 @@ class TankController:
 
     def cleanup(self):
         self.motorController.cleanup()
+
+    def motorsOn(self):
+        self.motorController.leftMotorOn()
+        self.motorController.rightMotorOn()
+
+    def motorsOff(self):
+        self.motorController.leftMotorOff()
+        self.motorController.rightMotorOff()
