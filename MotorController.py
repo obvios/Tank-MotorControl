@@ -56,6 +56,7 @@ class MotorController:
 		self.rightMotorIn2 = 22
 
 	def setup(self):
+		"""Initializes GPIO mode to BOARD. Sets all pins to OUT. All pins started on LOW. PWM pins started at 100%."""
 		print("Setting up")
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setup(self.leftMotorEnable, GPIO.OUT)
@@ -77,7 +78,7 @@ class MotorController:
 		self.leftMotorPWM = GPIO.PWM(self.leftMotorEnable, 1000)
 		self.leftMotorPWM.start(100)
 		self.rightMotorPWM = GPIO.PWM(self.rightMotorEnable, 1000)
-		self.rightMotorPWM.start(75)
+		self.rightMotorPWM.start(100)
 
 	def turnOffAllMotors(self):
 		print("turning all motors and pins off")
