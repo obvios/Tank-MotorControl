@@ -39,3 +39,12 @@ class TankController:
         
         self.motorController.setLeftMotorSpeed(100)
         self.motorController.setRightMotorSpeed(100)
+
+if __name__ == '__main__':
+    tankController = TankController()
+    tankController.setup()
+    try:
+        # Call a test loop here. Pass tankController instance.
+        simpleOneWayLoop(tankController)
+    except KeyboardInterrupt:
+        tankController.cleanup()
