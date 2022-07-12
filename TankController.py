@@ -51,7 +51,13 @@ class TankController:
 
     def turnLeft(self):
         self.motorController.setLeftMotorSpeed(50)
+        self.motorController.setRightMotorSpeed(100)
+        self.motorController.rightMotorForward()
+        self.motorController.leftMotorForward()
+
+    def turnRight(self):
         self.motorController.setRightMotorSpeed(50)
+        self.motorController.setLeftMotorSpeed(100)
         self.motorController.leftMotorForward()
         self.motorController.rightMotorForward()
 
