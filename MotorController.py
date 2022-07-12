@@ -45,6 +45,7 @@ def simpleOneWayLoop(controller):
 class MotorController:
 
 	def __init__(self) -> None:
+		"""Defines internal variables. Maps internal variables to pins on Raspberry Pi 3+."""
 		self.leftMotorEnable = 33
 		self.leftMotorPWM = None
 		self.leftMotorIn1 = 35
