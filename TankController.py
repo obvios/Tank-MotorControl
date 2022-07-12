@@ -1,5 +1,6 @@
 # Module to abstract upon MotorController.py to control the movement of the tank
 from MotorController import MotorController
+from time import sleep
 
 class TankController:
     
@@ -40,10 +41,20 @@ class TankController:
         self.motorController.setLeftMotorSpeed(100)
         self.motorController.setRightMotorSpeed(100)
 
+
+def testTankDriver(tankController: TankController) -> None :
+    tankController.motorsOn()
+    tankController.moveForward()
+    sleep(1)
+    tankController.moveBackwards()
+    sleep(1)
+
+
 if __name__ == '__main__':
     tankController = TankController()
     tankController.setup()
     try:
         # Call a test loop here. Pass tankController instance.
+        testTankDriver(tankController)
     except KeyboardInterrupt:
         tankController.cleanup()
