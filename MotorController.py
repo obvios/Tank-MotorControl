@@ -46,49 +46,49 @@ class MotorController:
 
 	def __init__(self) -> None:
 		"""Defines internal variables. Maps internal variables to pins on Raspberry Pi 3+."""
-		self.leftMotorEnable = 33
-		self.leftMotorPWM = None
-		self.leftMotorIn1 = 35
-		self.leftMotorIn2 = 37
+		self.__leftMotorEnable = 33
+		self.__leftMotorPWM = None
+		self.__leftMotorIn1 = 35
+		self.__leftMotorIn2 = 37
 
-		self.rightMotorEnable = 26
-		self.rightMotorPWM = None
-		self.rightMotorIn1 = 24
-		self.rightMotorIn2 = 22
+		self.__rightMotorEnable = 26
+		self.__rightMotorPWM = None
+		self.__rightMotorIn1 = 24
+		self.__rightMotorIn2 = 22
 
 	def setup(self):
 		"""Initializes GPIO mode to BOARD. Sets all pins to OUT. All pins started on LOW. PWM pins started at 100%."""
 		print("Setting up")
 		GPIO.setmode(GPIO.BOARD)
-		GPIO.setup(self.leftMotorEnable, GPIO.OUT)
-		GPIO.setup(self.leftMotorIn1, GPIO.OUT)
-		GPIO.setup(self.leftMotorIn2, GPIO.OUT)
-		GPIO.setup(self.rightMotorEnable, GPIO.OUT)
-		GPIO.setup(self.rightMotorIn1, GPIO.OUT)
-		GPIO.setup(self.rightMotorIn2, GPIO.OUT)
+		GPIO.setup(self.__leftMotorEnable, GPIO.OUT)
+		GPIO.setup(self.__leftMotorIn1, GPIO.OUT)
+		GPIO.setup(self.__leftMotorIn2, GPIO.OUT)
+		GPIO.setup(self.__rightMotorEnable, GPIO.OUT)
+		GPIO.setup(self.__rightMotorIn1, GPIO.OUT)
+		GPIO.setup(self.__rightMotorIn2, GPIO.OUT)
 
 		print("initializing all pins to low")
-		GPIO.output(self.leftMotorEnable, GPIO.LOW)
-		GPIO.output(self.leftMotorIn1, GPIO.LOW)
-		GPIO.output(self.leftMotorIn2, GPIO.LOW)
-		GPIO.output(self.rightMotorEnable, GPIO.LOW)
-		GPIO.output(self.rightMotorIn1, GPIO.LOW)
-		GPIO.output(self.rightMotorIn2, GPIO.LOW)
+		GPIO.output(self.__leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn2, GPIO.LOW)
+		GPIO.output(self.__rightMotorEnable, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn2, GPIO.LOW)
 
 		print("setting up pwm pins")
-		self.leftMotorPWM = GPIO.PWM(self.leftMotorEnable, 1000)
-		self.leftMotorPWM.start(100)
-		self.rightMotorPWM = GPIO.PWM(self.rightMotorEnable, 1000)
-		self.rightMotorPWM.start(100)
+		self.__leftMotorPWM = GPIO.PWM(self.__leftMotorEnable, 1000)
+		self.__leftMotorPWM.start(100)
+		self.__rightMotorPWM = GPIO.PWM(self.__rightMotorEnable, 1000)
+		self.__rightMotorPWM.start(100)
 
 	def turnOffAllMotors(self):
 		print("turning all motors and pins off")
-		GPIO.output(self.leftMotorEnable, GPIO.LOW)
-		GPIO.output(self.leftMotorIn1, GPIO.LOW)
-		GPIO.output(self.leftMotorIn2, GPIO.LOW)
-		GPIO.output(self.rightMotorEnable, GPIO.LOW)
-		GPIO.output(self.rightMotorIn1, GPIO.LOW)
-		GPIO.output(self.rightMotorIn2, GPIO.LOW)
+		GPIO.output(self.__leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn2, GPIO.LOW)
+		GPIO.output(self.__rightMotorEnable, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn2, GPIO.LOW)
 
 	def cleanup(self):
 		print("Cleaning up")
@@ -97,38 +97,38 @@ class MotorController:
 
 	# Motor Controlling methods
 	def leftMotorOff(self):
-		GPIO.output(self.leftMotorEnable, GPIO.LOW)
+		GPIO.output(self.__leftMotorEnable, GPIO.LOW)
 
 	def rightMotorOff(self):
-		GPIO.output(self.rightMotorEnable, GPIO.LOW)
+		GPIO.output(self.__rightMotorEnable, GPIO.LOW)
 
 	def leftMotorOn(self):
-		GPIO.output(self.leftMotorEnable, GPIO.HIGH)
+		GPIO.output(self.__leftMotorEnable, GPIO.HIGH)
 
 	def rightMotorOn(self):
-		GPIO.output(self.rightMotorEnable, GPIO.HIGH)
+		GPIO.output(self.__rightMotorEnable, GPIO.HIGH)
 
 	def setLeftMotorSpeed(self, speed: int):
-		self.leftMotorPWM.ChangeDutyCycle(speed)
+		self.__leftMotorPWM.ChangeDutyCycle(speed)
 
 	def setRightMotorSpeed(self, speed: int):
-		self.rightMotorPWM.ChangeDutyCycle(speed)
+		self.__rightMotorPWM.ChangeDutyCycle(speed)
 
 	def leftMotorForward(self):
-		GPIO.output(self.leftMotorIn2, GPIO.LOW)
-		GPIO.output(self.leftMotorIn1, GPIO.HIGH)
+		GPIO.output(self.__leftMotorIn2, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn1, GPIO.HIGH)
 
 	def leftMotorReverse(self):
-		GPIO.output(self.leftMotorIn1, GPIO.LOW)
-		GPIO.output(self.leftMotorIn2, GPIO.HIGH)
+		GPIO.output(self.__leftMotorIn1, GPIO.LOW)
+		GPIO.output(self.__leftMotorIn2, GPIO.HIGH)
 
 	def rightMotorForward(self):
-		GPIO.output(self.rightMotorIn1, GPIO.LOW)
-		GPIO.output(self.rightMotorIn2, GPIO.HIGH)
+		GPIO.output(self.__rightMotorIn1, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn2, GPIO.HIGH)
 
 	def rightMotorReverse(self):
-		GPIO.output(self.rightMotorIn2, GPIO.LOW)
-		GPIO.output(self.rightMotorIn1, GPIO.HIGH)
+		GPIO.output(self.__rightMotorIn2, GPIO.LOW)
+		GPIO.output(self.__rightMotorIn1, GPIO.HIGH)
 
 
 if __name__ == '__main__':
