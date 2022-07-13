@@ -68,9 +68,9 @@ def testTankDriver(tankController: TankController) -> None :
     sleep(1)
     tankController.moveBackwards()
     sleep(1)
-    tankController.turnLeft()
+    tankController.spinLeft()
     sleep(1)
-    tankController.turnRight()
+    tankController.spinRight()
     sleep(1)
     tankController.cleanup()
 
