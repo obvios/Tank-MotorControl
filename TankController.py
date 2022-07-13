@@ -68,6 +68,9 @@ def testTankDriver(tankController: TankController) -> None :
     sleep(1)
     tankController.moveBackwards()
     sleep(1)
+    tankController.turnLeft()
+    sleep(1)
+    tankController.turnRight()
 
 
 if __name__ == '__main__':
