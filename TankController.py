@@ -72,6 +72,7 @@ def testTankDriver(tankController: TankController) -> None :
     sleep(1)
     tankController.turnRight()
     sleep(1)
+    tankController.cleanup()
 
 
 if __name__ == '__main__':
