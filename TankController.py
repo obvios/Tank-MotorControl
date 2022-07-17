@@ -39,16 +39,6 @@ class TankController:
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorReverse()
 
-    # TODO remove
-    def spinLeft(self):
-        self.motorController.leftMotorReverse()
-        self.motorController.rightMotorForward()
-
-    # TODO remove
-    def spinRight(self):
-        self.motorController.rightMotorReverse()
-        self.motorController.leftMotorForward()
-
     def turnLeft(self):
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorForward()
@@ -63,10 +53,6 @@ def testTankDriver(tankController: TankController) -> None :
     tankController.moveForward()
     sleep(1)
     tankController.moveBackwards()
-    sleep(1)
-    tankController.spinLeft()
-    sleep(1)
-    tankController.spinRight()
     sleep(1)
     tankController.cleanup()
 
