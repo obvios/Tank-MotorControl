@@ -6,23 +6,21 @@ class TankControllerPart:
         self.tankController = controller
         self.tankController.motorsOn()
 
-    def run(self, moving_forward, moving_reverse, steering_left, steering_right):
-        if moving_forward:
+    def run(self, throttle_pressed, reverse_throttle_pressed, steering_left, steering_right):
+        if throttle_pressed:
+            self.tankController.accelerate()
             self.tankController.moveForward()
             if steering_left:
                 self.tankController.turnLeft()
             elif steering_right:
                 self.tankController.turnRight()
-        elif moving_reverse:
+        elif reverse_throttle_pressed:
+            self.tankController.accelerate()
             self.tankController.moveBackwards()
             if steering_left:
                 self.tankController.turnLeft()
             elif steering_right:
                 self.tankController.turnRight()
-        elif steering_left:
-            self.tankController.spinLeft()
-        elif steering_right:
-            self.tankController.spinRight()
         else:
             self.tankController.stop()
 
