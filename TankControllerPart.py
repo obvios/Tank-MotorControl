@@ -12,7 +12,7 @@ class TankControllerPart:
             if steering_left:
                 self.tankController.turnLeft()
             elif steering_right:
-                self.tankController.turnRight
+                self.tankController.turnRight()
         elif moving_reverse:
             self.tankController.moveBackwards()
             if steering_left:
