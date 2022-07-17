@@ -58,7 +58,7 @@ def drive():
 
 
 if __name__ == '__main__':
-    args = docopt(__doc__)
+    # args = docopt(__doc__)
     cfg = conf.load_config("config.py")
 
     drive()
