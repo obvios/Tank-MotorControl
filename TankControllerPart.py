@@ -25,4 +25,8 @@ class TankControllerPart:
             self.tankController.spinRight()
         else:
             self.tankController.stop()
+
+    def shutdown(self):
+        self.tankController.motorsOff()
+        self.tankController.cleanup()
             
