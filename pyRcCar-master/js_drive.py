@@ -41,15 +41,6 @@ def drive():
         outputs=['user/throttle_pressed', 'user/reverse_pressed', 'user/steering_left', 'user/steering_right'],
         threaded=True)
 
-    f710 = LogitechJoystickController(
-        auto_record_on_throttle=False, steering_scale=1,
-        throttle_scale=cfg.JOYSTICK_MAX_THROTTLE,
-        throttle_dir=cfg.JOYSTICK_THROTTLE_DIR)
-
-    V.add(f710,
-          outputs=['user/angle', 'user/throttle', 'user/mode', 'recording'],
-          threaded=True)
-
     # Drive train setup
     arduino_controller = ArduinoFirmata(
         servo_pin=cfg.STEERING_ARDUINO_PIN, esc_pin=cfg.THROTTLE_ARDUINO_PIN)
