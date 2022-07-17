@@ -11,9 +11,9 @@ class TankControllerPart:
             self.tankController.accelerate()
             self.tankController.moveForward()
             if steering_left:
-                self.tankController.turnLeft()
+                self.tankController.turnLeftForward()
             elif steering_right:
-                self.tankController.turnRight()
+                self.tankController.turnRightForward()
         elif reverse_throttle_pressed:
             self.tankController.accelerate()
             self.tankController.moveBackwards()

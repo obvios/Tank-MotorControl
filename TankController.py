@@ -39,11 +39,11 @@ class TankController:
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorReverse()
 
-    def turnLeft(self):
+    def turnLeftForward(self):
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorForward()
 
-    def turnRight(self):
+    def turnRightForward(self):
         self.motorController.rightMotorReverse()
         self.motorController.leftMotorForward()
 
