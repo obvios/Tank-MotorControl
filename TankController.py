@@ -25,37 +25,37 @@ class TankController:
         self.motorController.setLeftMotorSpeed(0)
         self.motorController.setRightMotorSpeed(0)
 
+    def accelerate(self):
+        self.motorController.setLeftMotorSpeed(100)
+        self.motorController.setRightMotorSpeed(100)
+
     def moveForward(self):
         """Moves both wheels in the forward direction at 100% speed"""
         self.motorController.leftMotorForward()
         self.motorController.rightMotorForward()
-        
-        self.motorController.setLeftMotorSpeed(100)
-        self.motorController.setRightMotorSpeed(100)
 
     def moveBackwards(self):
         """Moves both wheels in the back direction at 100% speed"""
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorReverse()
-        
-        self.motorController.setLeftMotorSpeed(100)
-        self.motorController.setRightMotorSpeed(100)
 
+    # TODO remove
     def spinLeft(self):
         self.motorController.leftMotorReverse()
         self.motorController.rightMotorForward()
 
+    # TODO remove
     def spinRight(self):
         self.motorController.rightMotorReverse()
         self.motorController.leftMotorForward()
 
     def turnLeft(self):
-        self.motorController.setLeftMotorSpeed(45)
-        self.motorController.setRightMotorSpeed(100)
+        self.motorController.leftMotorReverse()
+        self.motorController.rightMotorForward()
 
     def turnRight(self):
-        self.motorController.setRightMotorSpeed(45)
-        self.motorController.setLeftMotorSpeed(100)
+        self.motorController.rightMotorReverse()
+        self.motorController.leftMotorForward()
 
 
 def testTankDriver(tankController: TankController) -> None :
