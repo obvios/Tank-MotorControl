@@ -12,6 +12,7 @@ import os
 import time
 
 from docopt import docopt
+from PS4ControllerPart import PS4ControllerPart
 
 import read_config as conf
 from vehicle import Vehicle
@@ -32,6 +33,13 @@ def drive():
 
     # Initialize car
     V = Vehicle()
+
+    # Add PS4 Controller
+    ps4Controller = PS4ControllerPart(interface="/dev/input/js0",connecting_using_ds4drv=False)
+    V.add(
+        ps4Controller,
+        outputs=['user/throttle_pressed', 'user/reverse_pressed', 'user/steering_left', 'user/steering_right'],
+        threaded=True)
 
     f710 = LogitechJoystickController(
         auto_record_on_throttle=False, steering_scale=1,
