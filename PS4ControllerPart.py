@@ -47,6 +47,10 @@ class PS4ControllerPart(Controller):
         print("PS4ControllerPart.run_threaded")
         return self.x_pressed, self.square_pressed, self.left_arrow_pressed, self.right_arrow_pressed
 
+    def shutdown(self):
+        # TODO still need to figure out if this needs any special shutdown handling
+        pass
+
 
 # ONLY FOR TESTING
 if __name__ == "__main__":
