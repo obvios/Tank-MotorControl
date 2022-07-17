@@ -52,14 +52,10 @@ class TankController:
     def turnLeft(self):
         self.motorController.setLeftMotorSpeed(45)
         self.motorController.setRightMotorSpeed(100)
-        self.motorController.rightMotorForward()
-        self.motorController.leftMotorForward()
 
     def turnRight(self):
         self.motorController.setRightMotorSpeed(45)
         self.motorController.setLeftMotorSpeed(100)
-        self.motorController.leftMotorForward()
-        self.motorController.rightMotorForward()
 
 
 def testTankDriver(tankController: TankController) -> None :
