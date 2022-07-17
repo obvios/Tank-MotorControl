@@ -13,6 +13,8 @@ import time
 
 from docopt import docopt
 from PS4ControllerPart import PS4ControllerPart
+from TankController import TankController
+from TankControllerPart import TankControllerPart
 
 import read_config as conf
 from vehicle import Vehicle
@@ -42,6 +44,14 @@ def drive():
         threaded=True)
 
     # Drive train setup
+    tank_controller = TankController()
+    tank_controller.setup()
+    tankControllerPart = TankControllerPart(tank_controller)
+    V.add(
+        tankControllerPart,
+        inputs=['user/throttle_pressed', 'user/reverse_pressed', 'user/steering_left', 'user/steering_right']
+        )
+
     arduino_controller = ArduinoFirmata(
         servo_pin=cfg.STEERING_ARDUINO_PIN, esc_pin=cfg.THROTTLE_ARDUINO_PIN)
     steering = PWMSteering(controller=arduino_controller,
