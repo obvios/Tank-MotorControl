@@ -34,7 +34,7 @@ def drive():
     # Initialize car
     V = Vehicle()
 
-    # Add PS4 Controller
+    # Add PS4 Controller. Input throttle and steering.
     ps4Controller = PS4ControllerPart(interface="/dev/input/js0",connecting_using_ds4drv=False)
     V.add(
         ps4Controller,
