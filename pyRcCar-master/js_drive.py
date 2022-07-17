@@ -52,20 +52,6 @@ def drive():
         inputs=['user/throttle_pressed', 'user/reverse_pressed', 'user/steering_left', 'user/steering_right']
         )
 
-    arduino_controller = ArduinoFirmata(
-        servo_pin=cfg.STEERING_ARDUINO_PIN, esc_pin=cfg.THROTTLE_ARDUINO_PIN)
-    steering = PWMSteering(controller=arduino_controller,
-                           left_pulse=cfg.STEERING_LEFT_PWM,
-                           right_pulse=cfg.STEERING_RIGHT_PWM)
-
-    throttle = PWMThrottle(controller=arduino_controller,
-                           max_pulse=cfg.THROTTLE_FORWARD_PWM,
-                           zero_pulse=cfg.THROTTLE_STOPPED_PWM,
-                           min_pulse=cfg.THROTTLE_REVERSE_PWM)
-
-    V.add(steering, inputs=['user/angle'])
-    V.add(throttle, inputs=['user/throttle'])
-
     # run the vehicle
     V.start(rate_hz=cfg.DRIVE_LOOP_HZ,
             max_loop_count=cfg.MAX_LOOPS)
