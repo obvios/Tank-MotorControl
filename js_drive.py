@@ -18,8 +18,8 @@ from TankControllerPart import TankControllerPart
 
 import read_config as conf
 from vehicle import Vehicle
-from joystick_part import LogitechJoystickController
-from arduino_part import ArduinoFirmata, PWMSteering, PWMThrottle
+# from joystick_part import LogitechJoystickController
+# from arduino_part import ArduinoFirmata, PWMSteering, PWMThrottle
 
 
 def drive():
