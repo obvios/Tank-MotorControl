@@ -11,7 +11,7 @@ Options:
 import os
 import time
 
-from docopt import docopt
+# from docopt import docopt
 from PS4ControllerPart import PS4ControllerPart
 from TankController import TankController
 from TankControllerPart import TankControllerPart
