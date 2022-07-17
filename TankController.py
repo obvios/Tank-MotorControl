@@ -58,9 +58,21 @@ class TankController:
 
 def testTankDriver(tankController: TankController) -> None :
     tankController.motorsOn()
+    tankController.accelerate()
     tankController.moveForward()
     sleep(1)
     tankController.moveBackwards()
+    sleep(1)
+    tankController.turnLeftForward()
+    sleep(1)
+    tankController.turnLeftBackwards()
+    sleep(1)
+    tankController.turnRightForward()
+    sleep(1)
+    tankController.turnRightBackwards()
+    sleep(1)
+    tankController.stop()
+    tankController.motorsOff()
     sleep(1)
     tankController.cleanup()
 
